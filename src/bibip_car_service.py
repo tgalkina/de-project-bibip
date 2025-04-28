@@ -187,7 +187,6 @@ class CarService:
                 if index_vin == vin:
                     car_position = int(position)
                     break
-
         with open(self.cars_file_path, "r+") as cars_file:
             cars_file.seek(car_position)
             car_data = cars_file.readline().strip().split("|")
@@ -199,7 +198,6 @@ class CarService:
             cars_file.flush()
         with open(self.cars_index_file_path, "r") as cars_index_file:
             index_lines = cars_index_file.readlines()
-
         with open(self.cars_index_file_path, "w") as cars_index_file:
             for line in index_lines:
                 index_vin, position = line.strip().split("|")
@@ -319,5 +317,3 @@ class CarService:
                 )
             )
         return top_models
-
-        raise NotImplementedError
